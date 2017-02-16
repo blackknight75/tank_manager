@@ -11,7 +11,7 @@ describe "when a user vists the tank new page" do
     fill_in "tank[gallons]", with: "200"
     click_on "Create Tank"
 
-    expect(page).to have_current_path user_tank_path(user, user.tanks.last)
+    expect(page).to have_current_path user_path(user)
     expect(page).to have_content("Shrimp Tank")
     expect(page).to have_content("200")
   end

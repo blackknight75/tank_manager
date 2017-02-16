@@ -9,7 +9,7 @@ class TanksController < ApplicationController
     user = User.find(params[:user_id])
     tank = user.tanks.new(tank_params)
     if tank.save
-      redirect_to user_tank_path(user, tank)
+      redirect_to user_path(user)
     else
       render :new
     end

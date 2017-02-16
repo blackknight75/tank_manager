@@ -16,7 +16,7 @@ skip_before_action :require_user, except: [:show]
   end
 
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def user_params

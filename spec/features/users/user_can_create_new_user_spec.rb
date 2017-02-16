@@ -11,7 +11,6 @@ describe "when user visits the user new page" do
     fill_in "Password", with: "password"
     fill_in "Confirm Password", with: "password"
     click_on "Create User"
-
     expect(page).to have_current_path user_path(User.last)
     expect(page).to have_content("Welcome Dan Olson")
   end

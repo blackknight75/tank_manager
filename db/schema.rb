@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215124242) do
+ActiveRecord::Schema.define(version: 20170216215656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fish", force: :cascade do |t|
+    t.string "name"
+    t.string "purchase_date"
+    t.string "purchase_store"
+    t.string "temperament"
+    t.string "breed"
+  end
 
   create_table "tanks", force: :cascade do |t|
     t.string   "name"
@@ -33,9 +41,8 @@ ActiveRecord::Schema.define(version: 20170215124242) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "password_confirmation"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "tanks", "users"

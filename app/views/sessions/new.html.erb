@@ -1,0 +1,16 @@
+<div>
+  <span style="padding-right:3px; padding-top: 3px; display:block;">
+    <img class="manImg" src="assets/tank2"></img>
+  </span>
+</div>
+<h1>Welcome to Tank Manager</h1>
+<h4>Login</h4>
+<%= form_for :session, url: login_path do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.submit "Log In" %>
+<% end %>
+
+<%= button_to "Create Account", new_user_path, method: :get %>

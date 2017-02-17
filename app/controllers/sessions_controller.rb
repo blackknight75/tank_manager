@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_user
 
   def new
-
+    render layout: false
   end
 
   def create

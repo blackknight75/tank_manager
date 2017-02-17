@@ -16,7 +16,7 @@ describe Tank do
                                 gallons: 20)
       3.times { tank1.fish.create(name: "Billy",
                                  breed: "Silly Sally",
-                                 temperament: "Lackadaisical",
+                                #  temperament: "Lackadaisical",
                                  purchase_date: "02/01/2017",
                                  purchase_store: "PetSmart",
                                  tank_id: tank1
@@ -24,7 +24,7 @@ describe Tank do
               }
       tank2.fish.create(name: "Berny",
                                  breed: "Comet",
-                                 temperament: "Lackadaisical",
+                                #  temperament: "Lackadaisical",
                                  purchase_date: "02/01/2017",
                                  purchase_store: "PetSmart",
                                  tank_id: tank2

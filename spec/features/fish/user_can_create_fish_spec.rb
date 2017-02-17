@@ -10,13 +10,11 @@ describe 'when a user visits the new fish page' do
     fill_in "fish[name]", with: "Betsy"
     fill_in "fish[purchase_date]", with: "01/01/2017"
     fill_in "fish[purchase_store]", with: "PetSmart"
-    fill_in "fish[temperament]", with: "easy going"
     click_on "Add Fish to Tank"
 
     expect(page).to have_current_path tank_path(tank)
     expect(page).to have_content("Betsy")
     expect(page).to have_content("01/01/2017")
     expect(page).to have_content("PetSmart")
-    expect(page).to have_content("easy going")
   end
 end

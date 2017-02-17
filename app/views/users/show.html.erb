@@ -9,6 +9,7 @@
     <% current_user.tanks.each do |tank| %>
       <h3><%= link_to tank.name, user_tank_path(current_user, tank) %></h3>
         <p>Gallons: <%= tank.gallons %></p>
-        <p>Fish: add fish count later</p>
+        <p>Fish: <%= tank.fish_count %></p>
+        <%= button_to "Add Fish to Tank", new_tank_fish_path(tank), method: :get %>
     <% end %>
   <% end %>

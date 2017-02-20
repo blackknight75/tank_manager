@@ -3,8 +3,8 @@
 <%= form_for [@tank, @fish] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :breed %>
-  <%= f.text_field :breed %>
+  <%= f.collection_select :breed_id, Breed.all, :id, :name %>
+  <%= link_to "Add New Breed", new_breed_path(path: @tank.id) %>
   <%= f.label :purchase_store %>
   <%= f.text_field :purchase_store %>
   <%= f.label :purchase_date %>

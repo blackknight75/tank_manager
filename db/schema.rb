@@ -11,20 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217153236) do
+ActiveRecord::Schema.define(version: 20170220221247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "breeds", force: :cascade do |t|
+    t.string "name"
+    t.string "temperament"
+  end
 
   create_table "fish", force: :cascade do |t|
     t.string  "name"
     t.string  "purchase_date"
     t.string  "purchase_store"
-    t.string  "breed"
     t.integer "tank_id"
+    t.float   "cost"
+    t.integer "breed_id"
   end
 
+  add_index "fish", ["breed_id"], name: "index_fish_on_breed_id", using: :btree
   add_index "fish", ["tank_id"], name: "index_fish_on_tank_id", using: :btree
+
+  create_table "tank_features", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.float    "cost"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "tank_id"
+  end
+
+  add_index "tank_features", ["tank_id"], name: "index_tank_features_on_tank_id", using: :btree
 
   create_table "tanks", force: :cascade do |t|
     t.string   "name"
@@ -43,10 +61,13 @@ ActiveRecord::Schema.define(version: 20170217153236) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "role",            default: 0
   end
 
+  add_foreign_key "fish", "breeds"
   add_foreign_key "fish", "tanks"
+  add_foreign_key "tank_features", "tanks"
   add_foreign_key "tanks", "users"
 end

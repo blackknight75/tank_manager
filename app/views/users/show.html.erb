@@ -6,23 +6,10 @@
   <% if current_user.tanks.empty?  %>
 
   <% else %>
-  <div class="row">
     <% current_user.tanks.each do |tank| %>
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="/assets/tank1.jpg">
-              <span class="card-title"><strong><%= link_to tank.name, user_tank_path(current_user, tank) %></strong></span>
-            </div>
-            <div class="card-content">
-              <p>Gallons: <%= tank.gallons %></p>
-              <p>Fish: <%= tank.fish_count %></p>
-            </div>
-            <div class="card-action">
-              <a href=<%= new_tank_fish_path(tank) %>>Add Fish to Tank</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h3><%= link_to tank.name, user_tank_path(current_user, tank) %></h3>
+        <p>Gallons: <%= tank.gallons %></p>
+        <p>Fish: <%= tank.fish_count %></p>
+        <%= button_to "Add Fish to Tank", new_tank_fish_path(tank), method: :get %>
     <% end %>
   <% end %>

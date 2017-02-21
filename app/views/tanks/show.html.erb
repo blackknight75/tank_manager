@@ -3,15 +3,10 @@
 
 <p>Size: <%= @tank.gallons %> Gallons</p>
 <br><br>
-<h4>Fish</h4>
   <% @tank.fish.each do |fish| %>
-    <%= link_to fish.name, tank_fish_path(@tank, fish) %> <br>
-    <%# fish.breed %> <br>
-  <br>
-  <% end %>
-  <br>
-<h4>Tank Features</h4>
-  <% @tank.tank_features.each do |tank_feature| %>
-    <%= link_to tank_feature.name, tank_tank_feature_path(@tank, tank_feature) %>
+    <%= fish.name %> <br>
+    <%= fish.breed %> <br>
+    <%= fish.purchase_store %> <br>
+    <%= fish.purchase_date %> <br>
     <br><br>
   <% end %>
